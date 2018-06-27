@@ -8,7 +8,6 @@ export default [
     message: `
     Gros soleil de prévu, profitons en pour prendre une mousse bien fraîche ! :)
     Rejoins nous ici : {{LIEU.NOM}}, {{LIEU.ADRESSE}} le {{DATE}}.
-    
     Happy Dev est partout en France (Paris, Le Mans, Nantes, Lyon, PACA...). C'est un réseau de + de 200 freelances dans les métiers du web et du numérique...`
   }
 ];
