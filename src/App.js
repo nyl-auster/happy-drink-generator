@@ -3,8 +3,8 @@ import Button from "./components/Button";
 import generateHappyDrink from "./lib/happyDrinkGenerator";
 import HappyDrink from "./components/HappyDrink";
 import styled from "styled-components";
-import moment from "moment";
 import "moment/locale/fr";
+import moment from "moment";
 moment.locale("fr");
 
 const Container = styled.div`
@@ -17,23 +17,39 @@ const Container = styled.div`
 class App extends Component {
   state = {
     space: null,
-    time: null
+    time: null,
+    tweet: null,
+    facebookMessage: null
   };
   handleClick = () => {
-    const { space, time } = generateHappyDrink();
+    const { space, time, tweet, facebookMessage } = generateHappyDrink();
     this.setState({
       space,
-      time
+      time,
+      tweet,
+      facebookMessage
     });
   };
   render() {
-    const { space, time } = this.state;
+    const { space, time, tweet, facebookMessage } = this.state;
     return (
       <Container>
         <Button onClick={this.handleClick}>
           Génére ton Happy Drink à Nantes !{" "}
         </Button>
         {space && time && <HappyDrink space={space} time={time} />}
+        {tweet && (
+          <div>
+            <h3>Tweet</h3>
+            <div>{tweet}</div>
+          </div>
+        )}
+        {facebookMessage && (
+          <div>
+            <h3>Facebook</h3>
+            <div> {facebookMessage}</div>
+          </div>
+        )}
       </Container>
     );
   }
