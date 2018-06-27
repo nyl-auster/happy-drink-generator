@@ -26,17 +26,6 @@ class App extends Component {
       time
     });
   };
-  renderDate() {
-    const { space, time } = this.state;
-    return (
-      time &&
-      "le " +
-        moment(time)
-          .lang("fr")
-          .format("LL") +
-        " à 19h"
-    );
-  }
   render() {
     const { space, time } = this.state;
     return (
@@ -44,7 +33,7 @@ class App extends Component {
         <Button onClick={this.handleClick}>
           Génére ton Happy Drink à Nantes !{" "}
         </Button>
-        <div>{space && time && <HappyDrink space={space} time={time} />}</div>
+        {space && time && <HappyDrink space={space} time={time} />}
       </Container>
     );
   }
